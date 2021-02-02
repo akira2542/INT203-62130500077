@@ -1,44 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
 
-        <meta charset="UTF-8" />
-      
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      
-        <title>Basic Vue Js - HelloWorld App</title>
-      
-      
-      
-        <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
-      
-        <!-- Using via Google Web Fonts -->
-      
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-      
-      
-      
-        <!-- https://tailwindcss.com/docs/installation -->
-      
-        <!-- Using Tailwind via CDN -->
-      
-        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
-      
-      
-      
-        <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
-      
-        <!-- Vue CDN -->
-      
-        <script src="https://unpkg.com/vue@next"></script>
-      
-      
-      
-      </head>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>reddit: the front page of internet</title>
+    <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+    <!-- Using via Google Web Fonts -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <!-- https://tailwindcss.com/docs/installation -->
+    <!-- Using Tailwind via CDN -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+    <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+
+    <!-- Vue CDN -->
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<style>
+    .material-icons.blue600 {
+        color: #2261c7;
+    }
+    .material-icons.green600 {
+        color: #15da1f;
+    }
+
+    .material-icons.md-28 {
+        font-size: 28px;
+    }
+    .material-icons.md-14 {
+        font-size: 14px;
+    }
+
+    .material-icons.md-dark {
+        color: rgba(0, 0, 0, 0.54);
+    }
+    .trending {
+        /* background-image: url('images/trending/test.jpg'); */
+        background-repeat: no-repeat;
+        background-size: 120%;
+        overflow: hidden;
+    }
+    .trending.pic1 {
+        background-image: url('images/trending/1.jpg');
+    }
+    .trending.pic2 {
+        background-image: url('images/trending/2.jpg');
+    }
+    .trending.pic3 {
+        background-image: url('images/trending/3.jpg');
+    }
+    .trending.pic4 {
+        background-image: url('images/trending/4.png');
+    }
+    .trending.pic5 {
+        background-image: url('images/trending/banner.jpg');
+    }
+</style>
+
 <body>
-    <img src="images/Harold.jpg" class="w-1/3 h-full"></img>
-    <i class="material-icons">face</i>
-    <p id="app" class="font-semibold text-xl tracking-wider uppercase px-3"> {{ msg }} </p>
-</body>
-    <script src="main.js"></script>
+    <div id="app" class="pb-52 w-screen bg-gray-300">
+        <div id="navbar" class="w-screen h-12 bg-white flex justify-between">
+            <div id="logo" class="ml-5 mt-2 w-36 flex">
+                <img class="h-8 flex mr-2" src="images/reddit-logo.png" alt="logo">
+                <img class="h-6  flex mt-1" src="images/reddit-letter.png" alt="logo">
+            </div>
+            <!-- <div id="dropdown" class="w-48 flex rounded-md h-8 mt-2">
+                <i class="material-icons blue600 md-28 ml-2 mt-1 mr-2">king_bed</i><span class="mt-1">Home</span>
+                <i class="material-icons mt-1 ml-16">keyboard_arrow_down</i>
+            </div> -->
+            <div class="flex rounded-md h-8 mt-2 bg-gray-200 w-4/12">
+                <i class="material-icons md-28 ml-2 mt-1 mr-1 md-dark">search</i><span class="mt-1">Search</span>
+            </div>
+            <div class="flex">
+            <div id="login" class="mr-2 w-36 flex justify-center rounded-2xl h-8 mt-2 border-blue-500 border-solid border">
+                <p class="font-bold flex">Log In</p>
+            </div>
+            <div id="signup"
+                class="mr-3 w-36 flex justify-center rounded-2xl h-8 mt-2 bg-blue-500 border-blue-500 border-solid border">
+                <p class="font-bold text-white flex">Sign Up</p>
+            </div>
+            <div id="dropdown" class="w-24 flex rounded-2xl h-8 mt-2 border boder-gray-500">
+                <i class="material-icons md-dark md-28 ml-4 mt-0.5 mr-2">manage_accounts</i>
+                <i class="material-icons md-dark mt-1">keyboard_arrow_down</i>
+            </div>
+        </div>
+        </div>
+        <div id="container" class="w-screen flex justify-center">
+            <div id="body" class="grid grid-cols-3 gap-4 w-9/12">
+                <div id="trending" class="mt-5 w-12/12 h-62 col-span-3">
+                    <h4 class="font-semibold text-lg m-2">Trending today</h4>
+                    <div id="trending-cards" class="text-white w-12/12 grid grid-cols-4 gap-5">
+                        <div id="card-1" class="trending pic1 h-52 w-12/12 rounded-xl bg-blue-500">
+                            <div class="flex flex-col justify-end w-12/12 h-52 bg-gradient-to-b from-transparent to-black">
+                                <h3 class="m-3 mb-0 font-bold">Wallstreetbet</h3>
+                                <h4 class="m-3 mt-0 text-sm">Wallstreetbet do some thing new...</h4>
+                            </div>
+                        </div>
+                        <div id="card-1" class="trending pic2 h-52 w-12/12 rounded-xl bg-blue-500">
+                            <div class="flex flex-col justify-end w-12/12 h-52 bg-gradient-to-b from-transparent to-black">
+                                <h3 class="m-3 mb-0 font-bold">worldnews</h3>
+                                <h4 class="m-3 mt-0 text-sm">all the world are here...</h4>
+                            </div>
+                        </div>
+                        <div id="card-1" class="trending pic3 h-52 w-12/12 rounded-xl bg-blue-500">
+                            <div class="flex flex-col justify-end w-12/12 h-52 bg-gradient-to-b from-transparent to-black">
+                                <h3 class="m-3 mb-0 font-bold">awww</h3>
+                                <h4 class="m-3 mt-0 text-sm">cute puppy do the thing...</h4>
+                            </div>
+                        </div>
+                        <div id="card-1" class="trending pic4 h-52 w-12/12 rounded-xl bg-blue-500">
+                            <div class="flex flex-col justify-end w-12/12 h-52 bg-gradient-to-b from-transparent to-black">
+                                <h3 class="m-3 mb-0 font-bold">Politics</h3>
+                                <h4 class="m-3 mt-0 text-sm">White house declare martial laws...</h4>
+                            </div>
+                        </div>
+                    </div>                      
+                </div>
+                <div id="popular" class=" w-12/12 h-20 col-span-2 mb-2">
+                    <h4 class="m-2 font-semibold text-xl">Popular posts</h4>
+                    <div id="popular container" class="pb-1 font-bold bg-white rounded-xl p-1 w-12/12 flex">
+                        <div id="dropdown" class="w-28 flex justify-center rounded-2xl h-9 mt-1 mr-2 bg-gray-200">
+                            <i class="material-icons blue600 md-28 mt-0.5 mr-1">grass</i>
+                            <span class="mt-2">Hot</span>
+                        </div>
+                        <div id="dropdown" class="pl-5 pr-5 w-28 flex justify-center rounded-2xl h-9 mt-1 mr-2 bg-gray-200">
+                            <span class="mt-2">Thailand</span>
+                            <i class="material-icons md-dark mt-2">keyboard_arrow_down</i>
+                        </div>
+                        <div id="dropdown" class="w-28 flex justify-center rounded-2xl h-9 mt-1 mr-2 border border-solid">
+                            <i class="material-icons md-dark md-28 mt-1 mr-1">coronavirus</i>
+                            <span class="mt-1">New</span>
+                        </div>
+                        <div id="dropdown" class="w-28 flex justify-center rounded-2xl h-9 mt-1 mr-2 border border-solid">
+                            <i class="material-icons md-dark md-28 mt-1 mr-1">expand_less</i>
+                            <span class="mt-1">Top</span>
+                        </div>
+                        <div>
+                            <i class="material-icons blue600 md-28 mt-1 mr-1">more_horiz</i>
+                        </div>
+                    </div>
+                </div>
+                <div id="community" class="bg-white w-12/12 rounded-xl overflow-hidden row-span-2 pb-5">
+                    <div id="banner" class="w-12/12 h-36 trending pic5 flex flex-col justify-end">
+                        <h4 class="text-center bg-black bg-opacity-60 text-white">Today top growing communities</h4>
+                    </div>
+                    <div class="w-12/12 h-12 pt-2 border border-solid font-semibold">
+                        <span class="ml-4 mr-3">1</span>
+                        <img src="images/coms/wsb.png" class="mr-2 rounded-full w-5 h-5 inline bg-blue-500" alt="">
+                        <i class="material-icons md-14 green600 mr-2">navigation</i>
+                        <span>r/Wallstreetbet</span>
+                    </div>
+                    <div class="w-12/12 h-12 pt-2 border border-solid font-semibold">
+                        <span class="ml-4 mr-3">2</span>
+                        <img src="images/coms/2.png" class="mr-2 rounded-full w-5 h-5 inline bg-blue-500" alt="">
+                        <i class="material-icons md-14 green600 mr-2">navigation</i>
+                        <span>r/funny</span>
+                    </div>
+                    <div class="w-12/12 h-12 pt-2 border border-solid font-semibold">
+                        <span class="ml-4 mr-3">3</span>
+                        <img src="images/coms/3.png" class="mr-2 rounded-full w-5 h-5 inline bg-blue-500" alt="">
+                        <i class="material-icons md-14 green600 mr-2">navigation</i>
+                        <span>r/Holup</span>
+                    </div>
+                    <div class="w-12/12 h-12 pt-2 border border-solid font-semibold">
+                        <span class="ml-4 mr-3">4</span>
+                        <img src="images/coms/4.png" class="mr-2 rounded-full w-5 h-5 inline bg-blue-500" alt="">
+                        <i class="material-icons md-14 green600 mr-2">navigation</i>
+                        <span>r/goodanimemes</span>
+                    </div>
+                    <div class="w-12/12 h-12 pt-2 font-semibold">
+                        <span class="ml-4 mr-3">5</span>
+                        <img src="images/coms/5.png" class="mr-2 rounded-full w-5 h-5 inline bg-blue-500" alt="">
+                        <i class="material-icons md-14 green600 mr-2">navigation</i>
+                        <span>r/eyerollin</span>
+                    </div>
+                    <div class="flex justify-center">
+                        <h2 class="w-11/12 rounded-full mt-2 p-3 font-bold text-white bg-blue-600 text-center">View All</h2>
+                    </div>
+                    <div class="text-blue-600 font-bold mt-2 flex justify-center">
+                        <span class="bg-gray-200 p-3 pr-5 pl-5 mr-5 rounded-full">Financial Business</span>
+                        <span class="bg-gray-200 p-3 pr-5 pl-5 mr-5 rounded-full">Near You</span>
+                        <span class="bg-gray-200 p-3 pr-5 pl-5 rounded-full">Gaming</span>
+                    </div>    
+                </div>
+                <div id="content" class="bg-white overflow-hidden flex rounded-xl w-12/12 col-span-2 row-span-2">
+                    <div id="upvote" class="bg-gray-200 h-12/12 w-28 flex flex-col justify-start">
+                        <i class="material-icons mt-3 ml-5">eject</i>
+                        <p class="font-bold ml-3">29.8K</p>
+                        <i class="material-icons w-6 transform rotate-180 ml-5">eject</i>
+                    </div>
+                    <div class="m-2">
+                        <div class="w-12/12 h-8 text-sm">
+                            <img src="images/coms/wsb.png" class="mr-2 rounded-full w-5 h-5 inline bg-blue-500" alt="">
+                            <span class="font-semibold">r/Wallstreetbet</span>
+                            <span class=""> Posted by GgEzy 19.8 hours ago</span>
+                        </div>
+                        <h2 class="font-bold mb-3">What A Cute Puppy!</h2>
+                        <img class="w-10/12" src="images/trending/test.jpg" alt="">
+                    </div>
+                </div>
+                <div id="ads" class="bg-white w-12/12 rounded-xl">
+                    <p class="m-2 mb-0">Advertisement</p>
+                    <img src="images/trending/test.jpg" alt="" class="w-48 ml-4">
+                </div>
+            </div>
+        </div>
+    </body>
+<script src="main.js"></script>
+
 </html>
